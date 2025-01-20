@@ -29,14 +29,13 @@
                     <th><?= $this->Paginator->sort('price') ?></th>
                     <th><?= $this->Paginator->sort('status') ?></th>
                     <th><?= $this->Paginator->sort('last_updated') ?></th>
-                    <th><?= $this->Paginator->sort('deleted') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                     if(count($products) == 0){
-                        echo '<tr><td colspan="8">No products found.</td></tr>'; // Span table size with message
+                        echo '<tr><td colspan="7">No products found.</td></tr>'; // Span table size with message
                     }
                 ?>
                 <?php foreach ($products as $product): ?>
@@ -47,7 +46,6 @@
                     <td><?= $this->Number->format($product->price) ?></td>
                     <td><?= h($product->status) ?></td>
                     <td><?= h($product->last_updated) ?></td>
-                    <td><?= h($product->deleted) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $product->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $product->id]) ?>
